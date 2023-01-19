@@ -1,17 +1,18 @@
 import java.awt.*;
 import javax.swing.*;
+import java.util.*;
 
 public class BallPanel extends JPanel {
-    int x,y,size,xSpeed,ySpeed;
-    Ball[] ball = new Ball[100];
+   // int x,y,size,xSpeed,ySpeed;
+    ArrayList<Ball> balls = new ArrayList<Ball>();
     public BallPanel() {
         for (int i = 0; i < 100; i++) {
-            size = (int)((Math.random()*50)+1);
-            x = (int)(Math.random()*(getWidth()-size)+1);
-            y = (int)(Math.random()*(getHeight()-size)+1);
-            xSpeed = (int)((Math.random()*20)+1);
-            ySpeed = xSpeed;
-            ball[i] = new Ball(x,y,size,xSpeed,ySpeed);
+            int size = (int)((Math.random()*50)+1);
+            int x = (int)(Math.random()*(getWidth()-size)+1);
+            int y = (int)(Math.random()*(getHeight()-size)+1);
+            int xSpeed = (int)((Math.random()*20)+1);
+            int ySpeed = xSpeed;
+            balls.add(new Ball(x,y,size,xSpeed,ySpeed));
         }
     }
     public int getBallWidth() {
