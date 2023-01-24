@@ -36,12 +36,12 @@ public class Ball extends BallPanel{
 
         x+= xSpeed;
 
-//        if (x >= getWidth()-size || x <= 0) {
-//            xSpeed *= -1;
-//        }
+        if (x >= getWidth()-size || x <= 0) {
+            xSpeed *= -1;
+        }
         y+= ySpeed;
-//        if (y >= getHeight()-size || y <= 0) {
-//            ySpeed *= -1;
-//        }
+        if (y >= getHeight()-size || y <= 0) {
+            ySpeed *= -1;
+        }
     }
 }
