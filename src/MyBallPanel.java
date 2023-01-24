@@ -9,7 +9,7 @@ public class MyBallPanel extends JPanel{
     private Ball myBall = new Ball(150,200,20);
     public MyBallPanel(){
         for (int i = 0; i < balls.length; i ++) {
-            balls[i] = new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*30));
+            balls[i] = new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100));
         }
 
         setFocusable(true);

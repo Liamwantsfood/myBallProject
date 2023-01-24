@@ -13,7 +13,7 @@ public class Ball extends BallPanel{
         y = inY;
         size = inSize;
         xSpeed = (int)(Math.random()*10);
-        ySpeed = xSpeed;
+        ySpeed = (int)(Math.random()*10);
 
         //color =  new Color((int)((Math.random()*255)+1),(int)((Math.random()*255)+1),(int)((Math.random()*255)+1));
     }
@@ -35,12 +35,13 @@ public class Ball extends BallPanel{
     public void moveBall(JPanel liam) {
 
         x+= xSpeed;
-
-        if (x >= getWidth()-size || x <= 0) {
+//        getWidth()-size
+//        getHeight()-size
+        if (x >= 500-size || x <= 0) {
             xSpeed *= -1;
         }
         y+= ySpeed;
-        if (y >= getHeight()-size || y <= 0) {
+        if (y >= 500-size || y <= 0) {
             ySpeed *= -1;
         }
     }
