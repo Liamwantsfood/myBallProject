@@ -1,16 +1,25 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.sql.SQLOutput;
 
 public class MyBallPanel extends JPanel{
     private int x,y,size;
-    private Ball[] balls = new Ball[20];
+    private Ball[] balls = new Ball[100];
     private Ball myBall = new Ball(150,200,20);
+    private double height,width;
     public MyBallPanel(){
         for (int i = 0; i < balls.length; i ++) {
             balls[i] = new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100));
         }
+        addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+                width = getWidth();
+                height = getHeight();
+            }
+        });
 
         setFocusable(true);
         addKeyListener(new KeyListener() {
@@ -40,7 +49,7 @@ public class MyBallPanel extends JPanel{
 
             }
         });
-        setBackground(Color.RED);
+        setBackground(Color.GRAY);
     }
 
 
@@ -50,7 +59,7 @@ public class MyBallPanel extends JPanel{
         myBall.drawBall(g);
        for (int i = 0; i < balls.length; i++) {
             balls[i].drawBall(g);
-            balls[i].moveBall(this);
+            balls[i].moveBall(this,width,height);
         }
         try{
             Thread.sleep(10);

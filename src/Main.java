@@ -9,6 +9,7 @@ public class Main {
         //===========================//
        // BallPanel myBall = new BallPanel();
 MyBallPanel hi = new MyBallPanel();
+        System.out.println(myFrame.getWidth());
 
         myFrame.add(hi);
 

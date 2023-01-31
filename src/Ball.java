@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.Graphics;
 
-public class Ball extends BallPanel{
+public class Ball extends JFrame{
     private int x,y,size,xSpeed,ySpeed;
     private Color color;
     //BallPanel panel = new BallPanel();
@@ -12,10 +12,11 @@ public class Ball extends BallPanel{
         x = inX;
         y = inY;
         size = inSize;
-        xSpeed = (int)(Math.random()*10);
-        ySpeed = (int)(Math.random()*10);
+        xSpeed = (int)((Math.random()*10)+100);
+        ySpeed = (int)((Math.random()*10)+100);
 
-        //color =  new Color((int)((Math.random()*255)+1),(int)((Math.random()*255)+1),(int)((Math.random()*255)+1));
+
+        color =  new Color(87,9,94);
     }
     public void moveRight() {
         x+= 3;
@@ -31,17 +32,18 @@ public class Ball extends BallPanel{
     }
     public void drawBall(Graphics g) {
         g.fillOval(x,y,size,size);
+        g.setColor(color);
     }
-    public void moveBall(JPanel liam) {
+    public void moveBall(JPanel liam,double wall1,double wall2) {
 
         x+= xSpeed;
 //        getWidth()-size
 //        getHeight()-size
-        if (x >= 500-size || x <= 0) {
+        if (x >= wall1-size || x <= 0) {
             xSpeed *= -1;
         }
         y+= ySpeed;
-        if (y >= 500-size || y <= 0) {
+        if (y >= wall2-size || y <= 0) {
             ySpeed *= -1;
         }
     }
