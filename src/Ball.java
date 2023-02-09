@@ -16,7 +16,7 @@ public class Ball extends JFrame{
         ySpeed = (int)((Math.random()*10));
 
 
-        color =  new Color((int)Math.random()*255,(int)Math.random()*255,(int)Math.random()*255);
+        color =  new Color((int)((Math.random()*255)+1),(int)((Math.random()*255)+1),(int)((Math.random()*255)+1));
     }
     public void moveRight(double width, double height) {
         x+= 3;
