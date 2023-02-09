@@ -12,23 +12,36 @@ public class Ball extends JFrame{
         x = inX;
         y = inY;
         size = inSize;
-        xSpeed = (int)((Math.random()*10)+100);
-        ySpeed = (int)((Math.random()*10)+100);
+        xSpeed = (int)((Math.random()*10));
+        ySpeed = (int)((Math.random()*10));
 
 
-        color =  new Color(87,9,94);
+        color =  new Color((int)Math.random()*255,(int)Math.random()*255,(int)Math.random()*255);
     }
-    public void moveRight() {
+    public void moveRight(double width, double height) {
         x+= 3;
+
+        if (x >= width) {
+            x = 0-size;
+        }
     }
-    public void moveLeft() {
+    public void moveLeft(double width, double height) {
+
         x-= 3;
+
+        if (x <= 0-size ) {
+            x = ((int)width)+size;
+        }
     }
-    public void moveUp() {
-        y+= 3;
+    public void moveUp(double width, double height) {
+        if(y <= height-size) {
+            y += 3;
+        }
     }
-    public void moveDown() {
-        y-= 3;
+    public void moveDown(double width, double height) {
+        if (y >= 0) {
+            y -= 3;
+        }
     }
     public void drawBall(Graphics g) {
         g.fillOval(x,y,size,size);

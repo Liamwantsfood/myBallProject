@@ -7,7 +7,7 @@ import java.sql.SQLOutput;
 
 public class MyBallPanel extends JPanel{
     private int x,y,size;
-    private Ball[] balls = new Ball[100];
+    private Ball[] balls = new Ball[20];
     private Ball myBall = new Ball(150,200,20);
     private double height,width;
     public MyBallPanel(){
@@ -33,13 +33,13 @@ public class MyBallPanel extends JPanel{
                 System.out.println(e.getKeyCode());
                 int keyCode = e.getKeyCode();
                 if (keyCode == 68) {
-                    myBall.moveRight();
+                    myBall.moveRight(width,height);
                 } else if (keyCode == 87) {
-                    myBall.moveDown();
+                    myBall.moveDown(width,height);
                 } else if (keyCode == 65) {
-                    myBall.moveLeft();
+                    myBall.moveLeft(width,height);
                 } else if (keyCode == 83) {
-                    myBall.moveUp();
+                    myBall.moveUp(width,height);
                 }
 
             }
