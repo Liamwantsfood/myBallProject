@@ -3,17 +3,23 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.util.*;
 import java.sql.SQLOutput;
 
+import static com.sun.java.accessibility.util.AWTEventMonitor.addActionListener;
+
 public class MyBallPanel extends JPanel{
+    JButton button = new JButton("add");
     private int x,y,size;
-    private Ball[] balls = new Ball[20];
+    private ArrayList<Ball> addBall = new ArrayList<Ball>();
     private Ball myBall = new Ball(150,200,20);
     private double height,width;
+
     public MyBallPanel(){
-        for (int i = 0; i < balls.length; i ++) {
-            balls[i] = new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100));
+        for (int i = 0; i < 20; i ++) {
+            addBall.add( new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100)));
         }
+        add(button);
         addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
                 width = getWidth();
@@ -49,6 +55,11 @@ public class MyBallPanel extends JPanel{
 
             }
         });
+        addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                addBall.add( new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100)));
+            }
+        } );
         setBackground(Color.GRAY);
     }
 
@@ -57,9 +68,9 @@ public class MyBallPanel extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         myBall.drawBall(g);
-       for (int i = 0; i < balls.length; i++) {
-            balls[i].drawBall(g);
-            balls[i].moveBall(this,width,height);
+       for (int i = 0; i < 20; i++) {
+            addBall.get(i).drawBall(g);
+            addBall.get(i).moveBall(this,width,height);
         }
         try{
             Thread.sleep(10);
