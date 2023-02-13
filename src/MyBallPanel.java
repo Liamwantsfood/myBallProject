@@ -55,9 +55,9 @@ public class MyBallPanel extends JPanel{
 
             }
         });
-        addActionListener(new ActionListener() {
+        button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                addBall.add( new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100)));
+                addBall.add(new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100)));
             }
         } );
         setBackground(Color.GRAY);
