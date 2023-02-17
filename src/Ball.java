@@ -43,6 +43,16 @@ public class Ball extends JFrame{
             y -= 3;
         }
     }
+    public void delete(int mouseX, int mouseY) {
+        if (x)
+    }
+
+//    double circ = Math.sqrt((mouseY - y) * (mouseY - y) + (mouseX - x) * (mouseX - x));
+//        if((size / 2) >= circ){
+//        return 1;
+//    } else {
+//        return 0;
+//    }
     public void drawBall(Graphics g) {
         g.fillOval(x,y,size,size);
         g.setColor(color);

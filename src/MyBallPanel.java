@@ -9,12 +9,22 @@ public class MyBallPanel extends JPanel{
     private ArrayList<Ball> addBall = new ArrayList<>();
     private Ball myBall = new Ball(150,200,20);
     private double height,width;
+    private int mouseX,mouseY;
 
     public MyBallPanel(){
-        for (int i = 0; i < 20; i ++) {
+        for (int i = 0; i < 300; i ++) {
             addBall.add( new Ball((int)(Math.random()*200),(int)(Math.random()*200),(int)(Math.random()*100)));
         }
         add(button);
+        addMouseListener(new MouseAdapter(){
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mouseX = e.getX();
+                mouseY = e.getY();
+               System.out.println("" + mouseX + "," + mouseY);
+            }
+        });
+
 
 
         button.addActionListener(new ActionListener() {
