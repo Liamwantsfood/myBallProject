@@ -24,6 +24,14 @@ public class MyBallPanel extends JPanel{
                System.out.println("" + mouseX + "," + mouseY);
             }
         });
+        public void mousePressed(MouseEvent e) {
+            for (int i = 0; i<addBall.size(); i++) {
+                int delete = addBall.get(i).delete(e.getX(),e.getY());
+                if (delete == 1) {
+                    addBall.remove(i);
+                }
+            }
+        }
 
 
 
